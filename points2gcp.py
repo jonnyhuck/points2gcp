@@ -1,7 +1,7 @@
 import csv
 
 # set csv path
-csv_path = "gcp_point_MR.points"
+csv_path = "pointsfile.points"
 
 # init output string
 out = ""
@@ -18,8 +18,8 @@ with open(csv_path, "rb") as file:
 	# for each line
 	for row in reader:
 
-		# convert to required format and append to output string
-		out += "-gcp " + " ".join(row[:-1]) + " "
+		# convert to required format and append to output string (-gcp pixel line easting northing elevation)
+		out += "-gcp " + " ".join([ str(round(float(row[2]),3)), str(abs(round(float(row[3]),3))), row[0], row[1]]) + " "
 
 # print output string
 print out
