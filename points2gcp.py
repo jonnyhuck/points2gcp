@@ -7,9 +7,9 @@ csv_path = "pointsfile.points"
 out = ""
 
 # open the file
-with open(csv_path, "rb") as file:
+with open(csv_path, "rt") as file:
 
-	# read the file (binary mode)
+	# read the file (text mode)
 	reader = csv.reader(file)
 	
 	# skip the header line
@@ -22,4 +22,4 @@ with open(csv_path, "rb") as file:
 		out += "-gcp " + " ".join([ str(round(float(row[2]),3)), str(abs(round(float(row[3]),3))), row[0], row[1]]) + " "
 
 # print output string
-print out
+print(out)
